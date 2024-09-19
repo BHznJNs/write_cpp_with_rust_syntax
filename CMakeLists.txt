@@ -9,4 +9,5 @@ project(write_cpp_in_rust VERSION 0.1.0 LANGUAGES CXX)
 
 include_directories(include)
 
-add_executable(fn examples/fn.cpp)
+add_executable(for_in_loop examples/for_in_loop.cpp)
+add_executable(infinite_loop examples/infinite_loop.cpp)
