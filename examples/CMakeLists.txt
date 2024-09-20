@@ -1,7 +1,6 @@
 file(GLOB EXAMPLES "*.cpp")
 foreach(file IN LISTS EXAMPLES)
   get_filename_component(file_name ${file} NAME_WE)
-  message(${file_name})
   add_executable(${file_name} ${file_name}.cpp)
   target_link_libraries(${file_name} rust_preclude)
 endforeach()
