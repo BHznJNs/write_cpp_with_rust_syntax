@@ -9,4 +9,5 @@ fn main() -> i32 {
     num = Some<usize>(10);
     println("is num Some: {}", num.is_some());
     println("num value: {}", num.unwrap());
+    println("reunwrap: {}", num.unwrap());
 }

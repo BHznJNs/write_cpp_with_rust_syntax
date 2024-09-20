@@ -10,7 +10,7 @@ using _option_variant = std::variant<T, std::monostate>;
 template<typename T>
 struct _option_visitor {
     fn operator()(T value) const -> T {
-        return std::move(value);
+        return value;
     }
     fn operator()(std::monostate) const -> T {
         panic("called `Option::unwrap()` on a `None` value");
@@ -26,7 +26,11 @@ struct _option_wrapper {
     fn is_some() -> bool { return  self->has_value_; }
     fn is_none() -> bool { return !self->has_value_; }
     fn unwrap() -> T {
-        return std::visit(_option_visitor<T>(), self->data);
+        // move original value to avoid re-unwrap
+        let temp = std::move(self->data);
+        self->data = std::monostate();
+        self->has_value_ = false;
+        return std::visit(_option_visitor<T>(), temp);
     }
 
     fn operator=(_option_wrapper&& other) noexcept {
