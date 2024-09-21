@@ -1,15 +1,15 @@
 #include "preclude.h"
 
 struct Person {
+    pub String name;
+    pub u16 age;
+
     static fn new(String name, u16 age) {
         return Person {
             std::move(name),
             age,
         };
     };
-
-    String name;
-    u16 age;
 };
 
 fn main() -> i32 {
