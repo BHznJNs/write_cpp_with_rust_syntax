@@ -1,6 +1,5 @@
 #pragma once
 
-#include "fmt/core.h"
 #include "preclude.h"
 
 use fmt::format;  // NOLINT
@@ -16,20 +15,24 @@ fn panic(fmt::format_string<T...> fmt, T&&... args) -> never {
     std::terminate();
 }
 
+fn todo() -> never;
+fn unimplemented() -> never;
+fn unreachable() -> never;
+
 template <typename... T>
 fn todo(fmt::format_string<T...> fmt, T&&... args) -> never {
     let msg = format(fmt, args...);
-    if (msg.empty()) {
-        panic("not yet implemented");
-    }
     panic("not yet implemented: {}", msg);
 }
 
 template <typename... T>
 fn unimplemented(fmt::format_string<T...> fmt, T&&... args) -> never {
     let msg = format(fmt, args...);
-    if (msg.empty()) {
-        panic("not implemented");
-    }
     panic("not implemented: {}", msg);
+}
+
+template <typename... T>
+fn unreachable(fmt::format_string<T...> fmt, T&&... args) -> never {
+    let msg = format(fmt, args...);
+    panic("entered unreachable code: {}", msg);
 }

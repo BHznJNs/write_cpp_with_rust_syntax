@@ -1,6 +1,5 @@
 #pragma once
 
-#include "macros.h"
 #include "preclude.h"
 
 mod _option {
@@ -34,8 +33,10 @@ struct _option_wrapper {
     }
 
     fn operator=(_option_wrapper&& other) noexcept {
-        self->has_value_ = other.has_value_;
-        self->data = std::move(other.data);
+        if (self != &other) {
+            self->has_value_ = other.has_value_;
+            self->data = std::move(other.data);
+        }
     }
 
     pri bool has_value_;

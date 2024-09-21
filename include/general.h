@@ -7,7 +7,7 @@
 #define fn   auto
 #define enum enum class
 #define type using
-#define new  new_
+#define new  _new_
 #define self this
 #define let  auto
 #define ref  &&

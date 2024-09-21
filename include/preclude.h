@@ -13,3 +13,4 @@
 #include "types.h"
 #include "macros.h"
 #include "option.h"
+#include "result.h"
