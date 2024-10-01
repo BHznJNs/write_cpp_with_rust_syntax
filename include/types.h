@@ -18,8 +18,3 @@ type String = std::string;
 type str = std::string_view;
 template<typename T>
 type Vec = std::vector<T>;
-
-template<typename T>
-type Box = std::unique_ptr<T>;
-template<typename T>
-type Rc = std::shared_ptr<const T>;

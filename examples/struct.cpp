@@ -1,10 +1,12 @@
 #include "preclude.h"
 
 struct Person {
+    use Self = Person;
+
     pub String name;
     pub u16 age;
 
-    static fn new(String name, u16 age) {
+    pub static fn new(String name, u16 age) {
         return Person {
             std::move(name),
             age,

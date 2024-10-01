@@ -66,9 +66,9 @@ struct _result_wrapper {
         return *self;
     }
 
-    pri bool is_ok_  {false};
-    pri bool is_err_ {false};
-    pri _result_variant<T, E> data;
+    prv bool is_ok_  {false};
+    prv bool is_err_ {false};
+    prv _result_variant<T, E> data;
 };
 }
 

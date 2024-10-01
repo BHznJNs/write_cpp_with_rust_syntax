@@ -39,8 +39,8 @@ struct _option_wrapper {
         }
     }
 
-    pri bool has_value_;
-    pri _option_variant<T> data;
+    prv bool has_value_;
+    prv _option_variant<T> data;
 };
 }
 

@@ -12,5 +12,6 @@
 #include "general.h"
 #include "types.h"
 #include "macros.h"
+#include "smart_ptr.h"
 #include "option.h"
 #include "result.h"
